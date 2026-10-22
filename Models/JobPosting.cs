@@ -1,4 +1,6 @@
 
+using Pgvector;
+
 namespace CareerPortal.Models;
 
 public class JobPosting
@@ -9,7 +11,7 @@ public class JobPosting
     public string? ExternalId { get; set; }
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;
-    public float[]? JobEmbedding { get; set; }
+    public Vector? JobEmbedding { get; set; }
     public bool IsActive { get; set; } = true;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 

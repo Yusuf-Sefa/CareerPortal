@@ -1,4 +1,6 @@
 
+using Pgvector;
+
 namespace CareerPortal.Models;
 
 public class UserProfile
@@ -9,7 +11,7 @@ public class UserProfile
     public string? Title { get; set; }
     public string? Summary { get; set; }
     public string? CvRawText { get; set; }
-    public float[]? CvEmbedding { get; set; }
+    public Vector? CvEmbedding { get; set; }
     public DateTime UpdatedAt { get; set; } = DateTime.UtcNow;
 
 
