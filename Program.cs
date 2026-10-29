@@ -1,13 +1,15 @@
 using CareerPortal.Context;
 using Microsoft.EntityFrameworkCore;
+using DotNetEnv;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
+Env.Load();
 
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
+var connectionString = Environment.GetEnvironmentVariable("DB_ConnectionString")
     ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -36,7 +38,7 @@ var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    //app.MapOpenApi();
 }
 
 app.UseHttpsRedirection();
