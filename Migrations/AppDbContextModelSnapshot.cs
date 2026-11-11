@@ -26,11 +26,9 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.Company", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Description")
                         .HasColumnType("text");
@@ -49,14 +47,12 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.JobPosting", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -74,8 +70,8 @@ namespace CareerPortal.Migrations
                     b.Property<Vector>("JobEmbedding")
                         .HasColumnType("vector(1536)");
 
-                    b.Property<int>("RecruiterProfileId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("RecruiterProfileId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -97,11 +93,11 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.JobSkill", b =>
                 {
-                    b.Property<int>("JobPostingId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("JobPostingId")
+                        .HasColumnType("uuid");
 
-                    b.Property<int>("SkillId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("SkillId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("JobPostingId", "SkillId");
 
@@ -112,14 +108,12 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.RecruiterProfile", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
+                        .HasColumnType("uuid");
 
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("CompanyId")
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -128,8 +122,8 @@ namespace CareerPortal.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -143,11 +137,9 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.Skill", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -160,11 +152,9 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("timestamp with time zone");
@@ -184,11 +174,9 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.UserEducation", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("Degree")
                         .IsRequired()
@@ -208,8 +196,8 @@ namespace CareerPortal.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("UserProfileId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("UserProfileId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -220,11 +208,9 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.UserExperience", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("CompanyName")
                         .IsRequired()
@@ -243,8 +229,8 @@ namespace CareerPortal.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("UserProfileId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("UserProfileId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -255,11 +241,9 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.UserProfile", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<Vector>("CvEmbedding")
                         .HasColumnType("vector(1536)");
@@ -280,8 +264,8 @@ namespace CareerPortal.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
@@ -298,11 +282,11 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.UserSkill", b =>
                 {
-                    b.Property<int>("UserProfileId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("UserProfileId")
+                        .HasColumnType("uuid");
 
-                    b.Property<int>("SkillId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("SkillId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("UserProfileId", "SkillId");
 
@@ -313,11 +297,9 @@ namespace CareerPortal.Migrations
 
             modelBuilder.Entity("CareerPortal.Models.UserSkillHistory", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+                        .HasColumnType("uuid");
 
                     b.Property<string>("AiCoachNote")
                         .HasColumnType("text");
@@ -325,11 +307,11 @@ namespace CareerPortal.Migrations
                     b.Property<DateTime>("RecordedAt")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<int>("SkillId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("SkillId")
+                        .HasColumnType("uuid");
 
-                    b.Property<int>("UserProfileId")
-                        .HasColumnType("integer");
+                    b.Property<Guid>("UserProfileId")
+                        .HasColumnType("uuid");
 
                     b.HasKey("Id");
 
