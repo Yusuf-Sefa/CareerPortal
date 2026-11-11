@@ -5,9 +5,9 @@ namespace CareerPortal.Models;
 
 public class JobPosting
 {
-    public int Id { get; set; }
-    public int RecruiterProfileId { get; set; }
-    public int CompanyId { get; set; }
+    public Guid Id { get; set; }
+    public Guid RecruiterProfileId { get; set; }
+    public Guid CompanyId { get; set; }
     public string? ExternalId { get; set; }
     public string Title { get; set; } = string.Empty;
     public string Description { get; set; } = string.Empty;

@@ -3,9 +3,9 @@ namespace CareerPortal.Models;
 
 public class UserSkillHistory
 {
-    public int Id { get; set; }
-    public int UserProfileId { get; set; }
-    public int SkillId { get; set; }
+    public Guid Id { get; set; }
+    public Guid UserProfileId { get; set; }
+    public Guid SkillId { get; set; }
     public string? AiCoachNote { get; set; }
     public DateTime RecordedAt { get; set; } = DateTime.UtcNow;
 

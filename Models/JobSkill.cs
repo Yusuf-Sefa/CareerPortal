@@ -3,8 +3,8 @@ namespace CareerPortal.Models;
 
 public class JobSkill
 {
-    public int JobPostingId { get; set; }
-    public int SkillId { get; set; }
+    public Guid JobPostingId { get; set; }
+    public Guid SkillId { get; set; }
 
     // Navigation Properties
     public JobPosting JobPosting { get; set; } = null!;
