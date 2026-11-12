@@ -1,10 +1,9 @@
 
 namespace CareerPortal.Dtos.AgentDtos;
 
-public class ParsedCvDto
-{
-    public string FullName { get; set; } = string.Empty;
-    public string Title { get; set; } = string.Empty;
-    public string Summary { get; set; } = string.Empty;
-    public List<string> Skills { get; set; } = [];
-}
+public sealed record ParsedCvDto(
+    string FullName,
+    string Title,
+    string Summary,
+    IReadOnlyList<string> Skills
+);
