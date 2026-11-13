@@ -11,4 +11,12 @@ public class Company
     // Navigation Properties
     public ICollection<RecruiterProfile> RecruiterProfiles { get; set; } = [];
     public ICollection<JobPosting> JobPostings { get; set; } = [];
+
+    public void UpdateDetails(string name, string? location, string? description)
+    {
+        Name = name.Trim();
+        Location = string.IsNullOrWhiteSpace(location) ? null : location.Trim();
+        Description = string.IsNullOrWhiteSpace(description) ? null : description.Trim();
+    }
+
 }
