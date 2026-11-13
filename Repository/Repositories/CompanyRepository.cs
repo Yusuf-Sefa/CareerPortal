@@ -11,10 +11,10 @@ internal class CompanyRepository : GenericRepository<Company>, ICompanyRepositor
     public CompanyRepository(AppDbContext context) : base(context) {}
 
 
-    Task<Company?> ICompanyRepository.GetByNameAsync(string name, CancellationToken ct)
+    public Task<Company?> GetByNameAsync(string name, CancellationToken ct)
         => Context.Companies.FirstOrDefaultAsync(c => c.Name == name, ct);
     
-    Task<bool> ICompanyRepository.ExistsByNameAsync(string name, CancellationToken ct)
+    public Task<bool> ExistsByNameAsync(string name, CancellationToken ct)
         => Context.Companies.AsNoTracking().AnyAsync(c => c.Name == name, ct);
 
 }
